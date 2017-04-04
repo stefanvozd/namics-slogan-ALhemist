@@ -71,9 +71,24 @@ public class Word2VecUptrainingExample {
         log.info("Fitting Word2Vec model....");
         vec.fit();
 
+        String noun = "office";
+        int wordsCount  = 7;
 
-        Collection<String> lst = vec.wordsNearest("customer", 10);
-        log.info("Closest words to 'customer' on 1st run: " + lst);
+        Collection<String> lst = vec.wordsNearest(noun, wordsCount);
+        log.info("Closest words on 1st run: " + lst);
+
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+
+        System.out.print(toTitleCase(noun)+". ");
+        for(String s : lst) {
+            System.out.print(toTitleCase(s) + ". ");
+        }
+        System.out.println("Namics. ");
+        System.out.println("");
+        System.out.println("");
+
 
         /*
             at this moment we're supposed to have model built, and it can be saved for future use.
@@ -101,16 +116,15 @@ public class Word2VecUptrainingExample {
 
         word2Vec.fit();
 
-        lst = word2Vec.wordsNearest("customer", 10);
-        log.info("Closest words to 'customer' on 2nd : " + lst);
+        lst = word2Vec.wordsNearest(noun, wordsCount);
+        log.info("Closest words on 2nd : " + lst);
 
 
-        System.out.println("Here we gooooo");
         System.out.println("");
         System.out.println("");
         System.out.println("");
 
-        System.out.print("Customer. ");
+        System.out.print(toTitleCase(noun)+". ");
         for(String s : lst) {
             System.out.print(toTitleCase(s) + ". ");
         }
