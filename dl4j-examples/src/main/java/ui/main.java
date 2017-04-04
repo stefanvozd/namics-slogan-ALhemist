@@ -20,7 +20,7 @@ public class main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
-        Scene scene = new Scene(root, 284, 113); // scene is the child of root node with dimensions on width*height
+        Scene scene = new Scene(root, 500, 500); // scene is the child of root node with dimensions on width*height
         scene.getStylesheets().add("/fxml/main.css"); // attaching stylesheet
 
         primaryStage.setResizable(false);
