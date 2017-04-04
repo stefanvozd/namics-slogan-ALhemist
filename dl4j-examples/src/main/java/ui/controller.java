@@ -1,5 +1,6 @@
 package ui;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
@@ -14,6 +15,7 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -49,6 +51,9 @@ public class controller{
 
     @FXML
     private Text sloganTxt;
+
+    @FXML
+    private TextFlow textFlow;
 
     private String noun;
     private int wordcount;
@@ -124,10 +129,23 @@ public class controller{
             for ( String s : sloganWords ) {
                 sb.append(WordUtils.capitalize(s)+". ");
             }
-            sb.append("Namics.");
 
             System.out.println(sb.toString());
-            sloganTxt.setText(sb.toString());
+
+            sloganTxt.setText(" ");
+
+
+            Platform.runLater(new Runnable() {
+                @Override public void run() {
+                    Text text1=new Text(sb.toString());
+                    text1.setStyle("-fx-font-size: 24px; -fx-fill: #781e1e; -fx-font-weight: bold");
+
+                    Text text2=new Text("Namics.");
+                    text2.setStyle("-fx-font-size: 24px; -fx-fill: white; -fx-font-weight: bold");
+
+                    textFlow.getChildren().addAll(text1, text2);
+                }
+            });
 
         } catch (Exception e) {
             e.printStackTrace();

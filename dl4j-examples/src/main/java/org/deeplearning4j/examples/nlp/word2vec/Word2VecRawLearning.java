@@ -37,8 +37,8 @@ public class Word2VecRawLearning {
         log.info("Building model....");
         Word2Vec vec = new Word2Vec.Builder()
             .minWordFrequency(5)
-            .epochs(5)
-            .iterations(10)
+            .epochs(3)
+            .iterations(5)
             .layerSize(100)
             .seed(42)
             .windowSize(5)
