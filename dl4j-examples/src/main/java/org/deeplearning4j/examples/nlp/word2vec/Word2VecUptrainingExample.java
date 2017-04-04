@@ -18,16 +18,6 @@ import org.slf4j.LoggerFactory;
 import java.util.Collection;
 import java.util.regex.Pattern;
 
-/**
- * This is simple example for model weights update after initial vocab building.
- * If you have built your w2v model, and some time later you've decided that it can be
- * additionally trained over new corpus, here's an example how to do it.
- *
- * PLEASE NOTE: At this moment, no new words will be added to vocabulary/model.
- * Only weights update process will be issued. It's often called "frozen vocab training".
- *
- * @author raver119@gmail.com
- */
 public class Word2VecUptrainingExample {
 
     private static Logger log = LoggerFactory.getLogger(Word2VecUptrainingExample.class);
