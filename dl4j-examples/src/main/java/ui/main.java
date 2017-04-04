@@ -25,7 +25,7 @@ public class main extends Application {
 
         primaryStage.setResizable(false);
         primaryStage.setScene(scene); // start te scene
-        primaryStage.setTitle("Hello World"); // the title of the scene
+        primaryStage.setTitle("Slogan. Alchemist. Namics."); // the title of the scene
         primaryStage.show(); // show the rendered scene
 
     }

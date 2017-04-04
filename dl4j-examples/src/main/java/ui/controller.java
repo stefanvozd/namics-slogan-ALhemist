@@ -137,6 +137,8 @@ public class controller{
 
             Platform.runLater(new Runnable() {
                 @Override public void run() {
+                    textFlow.getChildren().clear();
+
                     Text text1=new Text(sb.toString());
                     text1.setStyle("-fx-font-size: 24px; -fx-fill: #781e1e; -fx-font-weight: bold");
 
