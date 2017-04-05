@@ -96,8 +96,15 @@ public class controller{
 
             PrintStream out = new PrintStream(new ByteArrayOutputStream() {
                 public synchronized void flush() throws IOException {
-                    textArea.setText(toString());
-                    textArea.setScrollTop(Double.MAX_VALUE);
+                    String str = toString();
+                    Platform.runLater(new Runnable() {
+                        @Override public void run() {
+                            textArea.setText(str);
+                            textArea.setScrollTop(Double.MAX_VALUE);
+                        }
+                    });
+
+
                 }
             }, true);
 
@@ -132,11 +139,12 @@ public class controller{
 
             System.out.println(sb.toString());
 
-            sloganTxt.setText(" ");
+
 
 
             Platform.runLater(new Runnable() {
                 @Override public void run() {
+                    sloganTxt.setText(" ");
                     textFlow.getChildren().clear();
 
                     Text text1=new Text(sb.toString());
