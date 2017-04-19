@@ -28,9 +28,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Collection;
 
-/**
- * Created by akshayrajgollahalli on 15/08/15.
- */
+
 
 public class controller{
 
@@ -115,9 +113,7 @@ public class controller{
            Thread worker = new Thread() {
                 @Override
                 public void run() {
-                    learn();
-
-                    design();
+                    design(learn());
                 }
             };
 
@@ -126,7 +122,7 @@ public class controller{
         }));
     }
 
-    private void learn() {
+    private String learn() {
         try {
             Collection<String> sloganWords = Word2VecRawLearning.learn(document, noun, wordcount);
 
@@ -137,33 +133,30 @@ public class controller{
                 sb.append(WordUtils.capitalize(s)+". ");
             }
 
-            System.out.println(sb.toString());
-
-
-
-
-            Platform.runLater(new Runnable() {
-                @Override public void run() {
-                    sloganTxt.setText(" ");
-                    textFlow.getChildren().clear();
-
-                    Text text1=new Text(sb.toString());
-                    text1.setStyle("-fx-font-size: 24px; -fx-fill: #781e1e; -fx-font-weight: bold");
-
-                    Text text2=new Text("Namics.");
-                    text2.setStyle("-fx-font-size: 24px; -fx-fill: white; -fx-font-weight: bold");
-
-                    textFlow.getChildren().addAll(text1, text2);
-                }
-            });
+            return sb.toString();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return "";
     }
 
     /* Step 3: Design */
-    private void design() {
+    private void design(String str) {
+        Platform.runLater(new Runnable() {
+            @Override public void run() {
+                sloganTxt.setText(" ");
+                textFlow.getChildren().clear();
+
+                Text text1=new Text(str);
+                text1.setStyle("-fx-font-size: 24px; -fx-fill: #781e1e; -fx-font-weight: bold");
+
+                Text text2=new Text("Namics.");
+                text2.setStyle("-fx-font-size: 24px; -fx-fill: white; -fx-font-weight: bold");
+
+                textFlow.getChildren().addAll(text1, text2);
+            }
+        });
     }
 
 

@@ -82,13 +82,13 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d42227" height="641.0" layoutX="-54.0" layoutY="-11.0" stroke="TRANSPARENT" strokeType="INSIDE" width="590.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d42227" height="641.0" layoutX="-54.0" layoutY="-11.0" stroke="TRANSPARENT" strokeType="INSIDE" width="700.0" />
                               <Text fx:id="sloganTxt" fill="WHITE" layoutX="102.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please wait..." textAlignment="CENTER" wrappingWidth="296.3251953125">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Text>
-                              <TextFlow fx:id="textFlow" layoutX="102.0" layoutY="69.0" prefHeight="307.0" prefWidth="309.0" />
+                              <TextFlow fx:id="textFlow" layoutX="50" layoutY="69.0" prefHeight="307.0" prefWidth="359.0" />
                            </children></AnchorPane>
                      </content>
                   </Tab>
